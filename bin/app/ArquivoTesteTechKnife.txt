@@ -1,0 +1,18 @@
+Number of Tables:150
+
+Menu:
+
+Pizza
+Hamburger
+Salad
+Pasta
+Meat
+Shrimp
+
+Pudim
+Ice Cream
+Cake
+
+Juice
+Pepsi
+Water
