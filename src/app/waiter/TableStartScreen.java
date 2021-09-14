@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import app.listeners.waiter.ListenerConfirmTableBtn;
 import entities.Restaurant;
 
 public class TableStartScreen extends WaiterScreen{
@@ -54,8 +55,8 @@ public class TableStartScreen extends WaiterScreen{
 		////
 		
 		JButton confirmTableBtn = new JButton("Confirm");
+		confirmTableBtn.addActionListener(new ListenerConfirmTableBtn(restaurant, this, waiterMainScreen, tableSelectedTF));
 		centerPanel.add(BorderLayout.SOUTH, confirmTableBtn);
-		//listener
 		
 		
 		mainPanel.add(nLabel);
