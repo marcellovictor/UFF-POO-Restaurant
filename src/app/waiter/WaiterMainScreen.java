@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 
+import app.listeners.waiter.ListenerServeTableBtn;
 import app.listeners.waiter.ListenerStartTableBtn;
 import entities.Restaurant;
 
@@ -29,7 +30,7 @@ public class WaiterMainScreen extends WaiterScreen{
 		JButton tableService = new JButton("Table Service");
 		//color
 		//font
-		//listener
+		tableService.addActionListener(new ListenerServeTableBtn(restaurant, this));
 		
 		add(tableService);
 		

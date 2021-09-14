@@ -14,15 +14,15 @@ import app.listeners.manager.ListenerOkWarning;
 import app.waiter.TableServiceScreen;
 import entities.Restaurant;
 
-public class ListenerConfirmTableBtn implements ActionListener{
+public class ListenerConfirmTableServiceBtn implements ActionListener{
 
-	private Restaurant restaurant;
+private Restaurant restaurant;
 	
 	private JFrame currentScreen;
 	private JFrame ancestorScreen;
 	private JTextField textField;
 	
-	public ListenerConfirmTableBtn(Restaurant restaurant, JFrame currentScreen, JFrame ancestorScreen, JTextField textField) {
+	public ListenerConfirmTableServiceBtn(Restaurant restaurant, JFrame currentScreen, JFrame ancestorScreen, JTextField textField) {
 		this.restaurant = restaurant;
 		this.currentScreen = currentScreen;
 		this.ancestorScreen = ancestorScreen;
@@ -103,7 +103,7 @@ public class ListenerConfirmTableBtn implements ActionListener{
 			
 			warning.setVisible(true);
 		}
-		else if (!restaurant.getTableArray()[selectedTable-1].isEmpty()) { //If table occupied
+		else if (restaurant.getTableArray()[selectedTable-1].isEmpty()) { //If table empty
 			currentScreen.disable();
 			
 			JFrame warning = new JFrame();
@@ -115,7 +115,9 @@ public class ListenerConfirmTableBtn implements ActionListener{
 			warning.setLayout(new BorderLayout());
 			
 			JPanel warningPanel = new JPanel();
-			JLabel warningLabel = new JLabel("WARNING: This table is occupied!");
+			JLabel warningLabel = new JLabel("WARNING: This table is empty!");
+			
+			
 			//change font size
 			
 			warningPanel.add(warningLabel);
@@ -131,9 +133,7 @@ public class ListenerConfirmTableBtn implements ActionListener{
 			
 			warning.setVisible(true);
 		}
-		else { //Here it's where it confirms the table and makes it occupied
-			
-			restaurant.getTableArray()[selectedTable-1].makeOccupied();
+		else { //Here it's where it confirms the table and opens service screen
 			
 			currentScreen.dispose();
 			new TableServiceScreen(restaurant.getTableArray()[selectedTable-1], ancestorScreen);
@@ -141,5 +141,4 @@ public class ListenerConfirmTableBtn implements ActionListener{
 		}
 		
 	}
-
 }
