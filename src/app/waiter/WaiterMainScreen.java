@@ -1,21 +1,19 @@
-package app;
+package app.waiter;
 
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
-public class WaiterMainScreen extends JFrame{
+import app.listeners.waiter.ListenerStartTableBtn;
+import entities.Restaurant;
 
-	public WaiterMainScreen() {
+public class WaiterMainScreen extends WaiterScreen{
+
+	public WaiterMainScreen(Restaurant restaurant) {
 		
 		//Screen Settings
-		setSize(400, 600);
-		setLocation(1290, 200);
-		setTitle("Waiter Interface");
 		
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		
+		setTitle("Waiter Main Screen");
 		setLayout(new GridLayout(2, 1));
 		
 		
@@ -23,7 +21,7 @@ public class WaiterMainScreen extends JFrame{
 		JButton tableStart = new JButton("Table Start");
 		//color
 		//font
-		//listener
+		tableStart.addActionListener(new ListenerStartTableBtn(restaurant, this));
 		
 		add(tableStart);
 		

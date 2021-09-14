@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 import app.KitchenScreen;
 import app.RestaurantInitThread;
 import app.SystemInitialization;
-import app.WaiterMainScreen;
 import app.manager.ManagerMainScreen;
+import app.waiter.WaiterMainScreen;
 import entities.Restaurant;
 
 public class ListenerInitializeSystemBtn implements ActionListener{
@@ -30,7 +30,7 @@ public class ListenerInitializeSystemBtn implements ActionListener{
 		
 		Restaurant restaurant = SystemInitialization.go(); // restaurantInitThread.getRestaurant();
 		
-		WaiterMainScreen waiterMainScreen = new WaiterMainScreen();
+		WaiterMainScreen waiterMainScreen = new WaiterMainScreen(restaurant);
 		KitchenScreen kitchenScreen = new KitchenScreen();
 		ManagerMainScreen managerMainScreen = new ManagerMainScreen(restaurant);
 		
