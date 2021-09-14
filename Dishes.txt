@@ -1,0 +1,6 @@
+Pizza 49.90
+Hamburger 22.90
+Salad 15.00
+Pasta 57.00
+Meat 72.00
+Shrimp 72.00

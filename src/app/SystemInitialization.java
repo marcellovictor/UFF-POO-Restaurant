@@ -10,7 +10,7 @@ public class SystemInitialization {
 	
 	private static final int STANDARD_TABLES_NUMBER = 100;
 	
-	private static String numTablesFile = "D:\\Java\\Workspace\\Restaurante POO UFF\\Restaurante POO UFF\\src\\app\\NumberOfTables.txt";
+	private static String numTablesFile = "NumberOfTables.txt";
 	
 	public static Restaurant go() {
 		

@@ -1,7 +1,6 @@
 package app;
 
 import app.manager.ManagerInitScreen;
-import entities.Restaurant;
 
 public class Main {
 
@@ -9,6 +8,7 @@ public class Main {
 		
 
 		ManagerInitScreen managerInitScreen = new ManagerInitScreen();
+		
 		
 		
 	}

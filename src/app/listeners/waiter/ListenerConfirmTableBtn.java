@@ -75,6 +75,34 @@ public class ListenerConfirmTableBtn implements ActionListener{
 			
 			warning.setVisible(true);
 		}
+		else if (selectedTable <= 0 || selectedTable > restaurant.getTablesNumber()) {
+			currentScreen.disable();
+			
+			JFrame warning = new JFrame();
+			warning.setSize(400, 200);
+			warning.setLocation(1290, 420);
+			warning.setTitle("WARNING");
+			
+			warning.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+			warning.setLayout(new BorderLayout());
+			
+			JPanel warningPanel = new JPanel();
+			JLabel warningLabel = new JLabel("WARNING: Table does not exist!");
+			//change font size
+			
+			warningPanel.add(warningLabel);
+			
+			warning.add(BorderLayout.CENTER, warningPanel);
+			
+			//////////
+			
+			JButton okWarning = new JButton("OK");
+			warning.add(BorderLayout.SOUTH, okWarning);
+			
+			okWarning.addActionListener(new ListenerOkWarning(warning, currentScreen));
+			
+			warning.setVisible(true);
+		}
 		else if (!restaurant.getTableArray()[selectedTable-1].isEmpty()) { //If table occupied
 			currentScreen.disable();
 			
