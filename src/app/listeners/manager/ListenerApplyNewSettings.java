@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 public class ListenerApplyNewSettings implements ActionListener{
 
-	private String filePath = "D:\\Java\\Workspace\\Restaurante POO UFF\\Restaurante POO UFF\\src\\app\\NumberOfTables.txt";
+	private String filePath = "NumberOfTables.txt";
 	
 	private JFrame currentScreen;
 	private JFrame toReturnScreen;
