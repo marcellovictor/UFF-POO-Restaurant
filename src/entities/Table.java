@@ -56,6 +56,10 @@ public class Table {
 		return "Table " + id;
 	}
 	
+	public void makeOrderEmpty() {
+		this.order = new ArrayList<>();
+	}
+	
 	
 	
 	

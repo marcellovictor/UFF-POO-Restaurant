@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import app.listeners.waiter.ListenerAddFoodToPreList;
 import app.listeners.waiter.ListenerCancelServiceBtn;
 import app.listeners.waiter.ListenerCheckPreList;
+import app.listeners.waiter.ListenerConfirmOrder;
+import app.listeners.waiter.ListenerEndService;
 import entities.Dessert;
 import entities.Dish;
 import entities.Drink;
@@ -110,6 +112,7 @@ public class TableServiceScreen extends WaiterScreen{
 		
 		////Confirm Btn
 		JButton confirmBtn = new JButton("Confirm");
+		confirmBtn.addActionListener(new ListenerConfirmOrder(this, waiterMainScreen, preConfirmedOrders, table));
 		
 		southPanel.add(confirmBtn);
 		
@@ -134,6 +137,27 @@ public class TableServiceScreen extends WaiterScreen{
 		westPanel.add(new JLabel("    s"));
 		westPanel.add(new JLabel("    t"));
 		
+		
+		//East
+		JPanel eastPanel = new JPanel();
+		eastPanel.setLayout(new GridLayout(12, 1));
+		add(BorderLayout.EAST, eastPanel);
+		
+		JButton endServiceBtn = new JButton();
+		endServiceBtn.addActionListener(new ListenerEndService(this, waiterMainScreen, table));
+		eastPanel.add(endServiceBtn);
+		
+		eastPanel.add(new JLabel("    e"));
+		eastPanel.add(new JLabel("    n"));
+		eastPanel.add(new JLabel("    d"));
+		eastPanel.add(new JLabel(""));
+		eastPanel.add(new JLabel("    s"));
+		eastPanel.add(new JLabel("    e"));
+		eastPanel.add(new JLabel("    r"));
+		eastPanel.add(new JLabel("    v"));
+		eastPanel.add(new JLabel("    i"));
+		eastPanel.add(new JLabel("    c"));
+		eastPanel.add(new JLabel("    e"));
 		
 		setVisible(true);
 	}
