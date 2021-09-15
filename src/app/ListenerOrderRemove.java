@@ -19,6 +19,7 @@ public class ListenerOrderRemove implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 		kitchenScreen.getCurrentOrders().remove(orderBtn);
+		orderBtn.setVisible(false);
 		
 	}
 
