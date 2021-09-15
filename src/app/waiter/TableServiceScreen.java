@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import app.KitchenScreen;
 import app.listeners.waiter.ListenerAddFoodToPreList;
 import app.listeners.waiter.ListenerCancelServiceBtn;
 import app.listeners.waiter.ListenerCheckPreList;
@@ -30,12 +31,14 @@ public class TableServiceScreen extends WaiterScreen{
 	
 	private Table table;
 	private JFrame waiterMainScreen;
+	private KitchenScreen kitchenScreen;
 	
-	public TableServiceScreen(Table table, JFrame waiterMainScreen) {
+	public TableServiceScreen(Table table, JFrame waiterMainScreen, KitchenScreen kitchenScreen) {
 		menu = new Menu();
 		
 		this.table = table;
 		this.waiterMainScreen = waiterMainScreen;
+		this.kitchenScreen = kitchenScreen;
 		
 		setTitle("Table Service");
 		setLayout(new BorderLayout());
@@ -112,7 +115,7 @@ public class TableServiceScreen extends WaiterScreen{
 		
 		////Confirm Btn
 		JButton confirmBtn = new JButton("Confirm");
-		confirmBtn.addActionListener(new ListenerConfirmOrder(this, waiterMainScreen, preConfirmedOrders, table));
+		confirmBtn.addActionListener(new ListenerConfirmOrder(this, waiterMainScreen, preConfirmedOrders, table, kitchenScreen));
 		
 		southPanel.add(confirmBtn);
 		

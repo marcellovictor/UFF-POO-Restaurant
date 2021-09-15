@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import app.KitchenScreen;
 import app.listeners.waiter.ListenerConfirmTableBtn;
 import entities.Restaurant;
 
@@ -17,10 +18,12 @@ public class TableStartScreen extends WaiterScreen{
 
 	private Restaurant restaurant;
 	private JFrame waiterMainScreen;
+	private KitchenScreen kitchenScreen;
 	
-	public TableStartScreen(Restaurant restaurant, JFrame waiterMainScreen) {
+	public TableStartScreen(Restaurant restaurant, JFrame waiterMainScreen, KitchenScreen kitchenScreen) {
 		this.waiterMainScreen = waiterMainScreen;
 		this.restaurant = restaurant;
+		this.kitchenScreen = kitchenScreen;
 		
 		setTitle("Table Start");
 		
@@ -55,7 +58,7 @@ public class TableStartScreen extends WaiterScreen{
 		////
 		
 		JButton confirmTableBtn = new JButton("Confirm");
-		confirmTableBtn.addActionListener(new ListenerConfirmTableBtn(restaurant, this, waiterMainScreen, tableSelectedTF));
+		confirmTableBtn.addActionListener(new ListenerConfirmTableBtn(restaurant, kitchenScreen, this, waiterMainScreen, tableSelectedTF));
 		centerPanel.add(BorderLayout.SOUTH, confirmTableBtn);
 		
 		

@@ -30,8 +30,9 @@ public class ListenerInitializeSystemBtn implements ActionListener{
 		
 		Restaurant restaurant = SystemInitialization.go(); // restaurantInitThread.getRestaurant();
 		
-		WaiterMainScreen waiterMainScreen = new WaiterMainScreen(restaurant);
+		
 		KitchenScreen kitchenScreen = new KitchenScreen();
+		WaiterMainScreen waiterMainScreen = new WaiterMainScreen(restaurant, kitchenScreen);
 		ManagerMainScreen managerMainScreen = new ManagerMainScreen(restaurant);
 		
 		ancestorScreen.hide();

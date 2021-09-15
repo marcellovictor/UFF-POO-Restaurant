@@ -4,13 +4,14 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 
+import app.KitchenScreen;
 import app.listeners.waiter.ListenerServeTableBtn;
 import app.listeners.waiter.ListenerStartTableBtn;
 import entities.Restaurant;
 
 public class WaiterMainScreen extends WaiterScreen{
 
-	public WaiterMainScreen(Restaurant restaurant) {
+	public WaiterMainScreen(Restaurant restaurant, KitchenScreen kitchenScreen) {
 		
 		//Screen Settings
 		
@@ -22,7 +23,7 @@ public class WaiterMainScreen extends WaiterScreen{
 		JButton tableStart = new JButton("Table Start");
 		//color
 		//font
-		tableStart.addActionListener(new ListenerStartTableBtn(restaurant, this));
+		tableStart.addActionListener(new ListenerStartTableBtn(restaurant, this, kitchenScreen));
 		
 		add(tableStart);
 		
@@ -30,7 +31,7 @@ public class WaiterMainScreen extends WaiterScreen{
 		JButton tableService = new JButton("Table Service");
 		//color
 		//font
-		tableService.addActionListener(new ListenerServeTableBtn(restaurant, this));
+		tableService.addActionListener(new ListenerServeTableBtn(restaurant, this, kitchenScreen));
 		
 		add(tableService);
 		

@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import app.KitchenScreen;
 import app.listeners.waiter.ListenerCancelServiceBtn;
 import app.listeners.waiter.ListenerConfirmTableServiceBtn;
 import entities.Restaurant;
@@ -18,10 +19,12 @@ public class PreTableServiceScreen extends WaiterScreen{
 	
 	private Restaurant restaurant;
 	private JFrame waiterMainScreen;
+	private KitchenScreen kitchenScreen;
 	
-	public PreTableServiceScreen(Restaurant restaurant, JFrame waiterMainScreen) {
+	public PreTableServiceScreen(Restaurant restaurant, JFrame waiterMainScreen, KitchenScreen kitchenScreen) {
 		this.waiterMainScreen = waiterMainScreen;
 		this.restaurant = restaurant;
+		this.kitchenScreen = kitchenScreen;
 		
 		setTitle("Select Table");
 		
@@ -63,7 +66,7 @@ public class PreTableServiceScreen extends WaiterScreen{
 		centerAuxPanel.add(goBackBtn);
 		
 		JButton confirmTableBtn = new JButton("Confirm");
-		confirmTableBtn.addActionListener(new ListenerConfirmTableServiceBtn(restaurant, this, waiterMainScreen, tableSelectedTF));
+		confirmTableBtn.addActionListener(new ListenerConfirmTableServiceBtn(restaurant, kitchenScreen, this, waiterMainScreen, tableSelectedTF));
 		centerAuxPanel.add(confirmTableBtn);
 		
 		centerPanel.add(BorderLayout.SOUTH, centerAuxPanel);

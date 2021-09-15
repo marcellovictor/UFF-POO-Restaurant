@@ -10,20 +10,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import app.KitchenScreen;
 import app.listeners.manager.ListenerOkWarning;
 import app.waiter.TableServiceScreen;
 import entities.Restaurant;
 
 public class ListenerConfirmTableServiceBtn implements ActionListener{
 
-private Restaurant restaurant;
+	private Restaurant restaurant;
+	private KitchenScreen kitchenScreen;
 	
 	private JFrame currentScreen;
 	private JFrame ancestorScreen;
 	private JTextField textField;
 	
-	public ListenerConfirmTableServiceBtn(Restaurant restaurant, JFrame currentScreen, JFrame ancestorScreen, JTextField textField) {
+	public ListenerConfirmTableServiceBtn(Restaurant restaurant, KitchenScreen kitchenScreen, JFrame currentScreen, JFrame ancestorScreen, JTextField textField) {
 		this.restaurant = restaurant;
+		this.kitchenScreen = kitchenScreen;
 		this.currentScreen = currentScreen;
 		this.ancestorScreen = ancestorScreen;
 		this.textField = textField;
@@ -136,7 +139,7 @@ private Restaurant restaurant;
 		else { //Here it's where it confirms the table and opens service screen
 			
 			currentScreen.dispose();
-			new TableServiceScreen(restaurant.getTableArray()[selectedTable-1], ancestorScreen);
+			new TableServiceScreen(restaurant.getTableArray()[selectedTable-1], ancestorScreen, kitchenScreen);
 			
 		}
 		
