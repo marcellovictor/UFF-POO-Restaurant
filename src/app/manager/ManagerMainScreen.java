@@ -1,5 +1,7 @@
 package app.manager;
 
+import java.awt.BorderLayout;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class ManagerMainScreen extends ManagerScreen{
 		
 		JMenuBar menuBar = new JMenuBar();
 		setTitle("Manager Control");
+		setLayout(new BorderLayout());
 		
 		//Panels Arraylist
 		List<JPanel> panelList = new ArrayList<>();
@@ -45,10 +48,11 @@ public class ManagerMainScreen extends ManagerScreen{
 		//Standard Menu
 		JPanel standardMenuPanel = new JPanel();
 		
-		JLabel jl = new JLabel("bananada de goiaba");
+		JLabel jl = new JLabel("Select a Menu Screen");
+		jl.setFont(new Font("Serif", Font.PLAIN, 42));
 		standardMenuPanel.add(jl);
 		
-		add(standardMenuPanel);
+		add(BorderLayout.CENTER, standardMenuPanel);
 		panelList.add(standardMenuPanel);
 		
 		//Operational Menu
