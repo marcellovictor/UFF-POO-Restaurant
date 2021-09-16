@@ -58,7 +58,7 @@ public class TableServiceScreen extends WaiterScreen{
 		
 		////CLeft
 		JPanel cLeftPanel = new JPanel();
-		cLeftPanel.setBackground(Color.BLUE);
+		cLeftPanel.setBackground(Color.GREEN);
 		
 		cLeftPanel.add(new JLabel("Dishes"));
 		
