@@ -1,11 +1,18 @@
 package entities;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.swing.JFrame;
+
 public class Restaurant {
 
 	//Attributes
 	
 	private Integer tablesNumber;
 	private Table[] tableArray;
+	
+	private AvaliacaoOO avaliacaoOO;
 	
 	//Constructors
 	
@@ -17,6 +24,9 @@ public class Restaurant {
 			tableArray[i] = new Table(i+1);
 		}
 		
+		avaliacaoOO = AvaliacaoOO.avalFileRead();
+		System.out.println(avaliacaoOO.toString());
+		
 	}
 	
 	//Getters
@@ -27,6 +37,10 @@ public class Restaurant {
 
 	public Table[] getTableArray() {
 		return tableArray;
+	}
+	
+	public AvaliacaoOO getAvaliacaoOO() {
+		return avaliacaoOO;
 	}
 	
 	

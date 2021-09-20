@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -12,6 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import app.listeners.manager.ListenerMenuButtons;
+import app.listeners.manager.ListenerOkWarning;
 import app.manager.panels.IncomeTodayPanel;
 import app.manager.panels.TableViewerPanel;
 import app.manager.panels.TablesTodayPanel;
@@ -82,6 +85,39 @@ public class ManagerMainScreen extends ManagerScreen{
 		
 		
 		setJMenuBar(menuBar);
+		
 		setVisible(true);
+		
+		
+		//AvaliacaoOO a partir desse ponto
+		
+		//part 1
+		
+		JFrame avalScreen = new JFrame();
+		avalScreen.setSize(400, 200);
+		avalScreen.setLocation(700, 400);
+		avalScreen.setTitle("AvaliacaoOO");
+		
+		avalScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		
+		avalScreen.setLayout(new BorderLayout());
+		
+		//part 2
+		
+		JPanel avalScreenPanel = new JPanel();
+		JLabel avalScreenLabel = new JLabel(restaurant.getAvaliacaoOO().toString());
+		
+		avalScreenPanel.add(avalScreenLabel);
+		
+		avalScreen.add(BorderLayout.CENTER, avalScreenPanel);
+		
+		//part 3
+		
+		JButton okAvalScreen = new JButton("OK");
+		avalScreen.add(BorderLayout.SOUTH, okAvalScreen);
+		
+		okAvalScreen.addActionListener(new ListenerOkWarning(avalScreen, this));
+		
+		avalScreen.setVisible(true);
 	}
 }
